@@ -1,17 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: code-sharing-be-app
+  name: mysql
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://github.com/thinhhja2001/code-sharing-be-deployment.git
-    targetRevision: HEAD
-    path: code-sharing-be
+  sources:
+    - repoURL: https://github.com/thinhhja2001/code-sharing-be-deployment.git
+      targetRevision: HEAD
+      path: db
+
   destination:
     server: https://kubernetes.default.svc
-    namespace: app
+    namespace: db
 
   syncPolicy:
     automated:
