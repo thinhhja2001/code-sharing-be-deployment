@@ -17,6 +17,6 @@ spec:
       containers:
         - name: code-sharing-be
           image: localhost:5000/code-sharing-be-3
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
