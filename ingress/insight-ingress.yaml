@@ -1,3 +1,39 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: redis-insight-basicauth
+  namespace: redis
+  labels:
+    konghq.com/credential: basic-auth
+type: Opaque
+stringData:
+  kongCredType: "basic-auth"
+  username: "thinhhja2001"
+  password: "Pa$$word"
+
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: redis-insight-basicauth-consumer
+  namespace: redis
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: redis-insight-basicauth-consumer
+credentials:
+  - redis-insight-basicauth
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: redis-insight-basicauth
+  namespace: redis
+  labels:
+    konghq.com/credential: basic-auth
+plugin: basic-auth
+config:
+  hide_credentials: true
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
