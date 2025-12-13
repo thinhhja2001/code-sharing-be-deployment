@@ -1,0 +1,10 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: redis-insight-basicauth-consumer
+  namespace: redis
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: redis-insight-basicauth-consumer
+credentials:
+  - redis-insight-basicauth

@@ -1,0 +1,10 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: redis-insight-basicauth
+  namespace: redis
+  labels:
+    konghq.com/credential: basic-auth
+plugin: basic-auth
+config:
+  hide_credentials: true

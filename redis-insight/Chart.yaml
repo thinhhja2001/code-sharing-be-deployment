@@ -1,0 +1,7 @@
+apiVersion: v2
+name: redisinsight
+version: v0.0.1
+dependencies:
+  - name: redisinsight
+    version: 1.3.1
+    repository: https://mrnim94.github.io/redisinsight/
